@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "Nise Saturn";
+  src: url("../assets/fonts/SegaSaturnJPN.TTF");
+}
+
+@font-face {
+  font-family: "SFdisplay-pro";
+  src: url("../assets/fonts/SFPRODISPLAYREGULAR.OTF");
+}
+
+:root {
+  font-family: SFdisplay-pro, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --color-console: #d3d1d2;
+  --color-sega: #343233;
+  --color-dpad: #4e4e50;
+  --color-xyz: #7e7e7e;
+  --color-a: #2d8467;
+  --color-b: #fecb23;
+  --color-c: #1d59c2;
+  --color-main: #b82a75;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  background-color: var(--color-console);
+}
+
+h1 {
+  color: var(--color-sega);
+  position: top;
+  text-align: center;
+  font-size: 23px;
+}
+#project-saturn {
+  color: var(--color-main);
+  position: top;
+  text-align: center;
+  font-size: 75%;
+  font-family:
+    Nise Saturn,
+    system-ui;
+}
