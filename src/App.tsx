@@ -4,9 +4,14 @@ import "./css/App.css";
 // const Card = lazy(() => import("./Card"));
 
 function App() {
-  return <>
-  <button className="refresh-mainTable">󱘴</button>
-  <div className="crudbox"><div>insert data here</div></div></>;
+  return (
+    <>
+      <button className="refresh-mainTable">󱘴</button>
+      <div className="crudbox">
+        <div>insert data here</div>
+      </div>
+    </>
+  );
 }
 
 export default App;

@@ -42,7 +42,7 @@
   }
 }
 
-.crudbox{
+.crudbox {
   border: solid 2px var(--color-sega);
   border-radius: 1em;
   height: 100%;
@@ -50,7 +50,7 @@
   margin: 20px;
 }
 
-.refresh-mainTable{
+.refresh-mainTable {
   color: var(--color-sega);
   font-family: UbuntuMono-NF, system-ui;
 }
