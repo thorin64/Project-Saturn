@@ -5,6 +5,16 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: "UbuntuMono-NF";
+  src: url("../assets/fonts/UbuntuMonoNerdFont-Regular.ttf");
+}
+@font-face {
+  font-family: "UbuntuMono-NF";
+  src: url("../assets/fonts/UbuntuMonoNerdFont-Bold.ttf");
+  font-weight: bold;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -32,10 +42,18 @@
   }
 }
 
-.card {
-  padding: 2em;
+.crudbox{
+  border: solid 2px var(--color-sega);
+  border-radius: 1em;
+  height: 100%;
+  padding: 50px;
+  margin: 20px;
 }
 
+.refresh-mainTable{
+  color: var(--color-sega);
+  font-family: UbuntuMono-NF, system-ui;
+}
 .read-the-docs {
   color: #888;
 }
