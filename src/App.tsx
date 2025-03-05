@@ -1,17 +1,17 @@
 import "./css/App.css";
+import Login from "./components/Login";
+// import useToken from "./components/useToken";
 
 // Works also with SSR as expected
 // const Card = lazy(() => import("./Card"));
 
 function App() {
-  return (
-    <>
-      <button className="refresh-mainTable">󱘴</button>
-      <div className="crudbox">
-        <div>insert data here</div>
-      </div>
-    </>
-  );
+  return <Login />;
 }
+/* return (
+    <>
+      <div className="crudbox">insert data</div>
+    </>
+  ); */
 
 export default App;
