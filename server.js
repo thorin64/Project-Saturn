@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 import express from "express";
 import { Transform } from "node:stream";
-import cors from "cors";
 
 // Constants
 const isProduction = process.env.NODE_ENV === "production";
@@ -97,14 +96,6 @@ app.use("*all", async (req, res) => {
     console.log(e.stack);
     res.status(500).end(e.stack);
   }
-});
-
-app.use(cors());
-
-app.use("/login", (req, res) => {
-  res.send({
-    token: "test123",
-  });
 });
 
 // Start http server
