@@ -1,62 +1,36 @@
-import CreateQueryPG from "../db/db_create";
-import { useState } from "react";
-import "../css/Login.css";
+import "../css/App.css";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const [input, setInput] = useState({
-    username: "",
-    password: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmitEvent = (e: any) => {
-    e.preventDefault();
-    if (input.username !== "" && input.password !== "") {
-      //dispatch action from hooks
-    }
-    alert("please provide a valid input");
+  const onSubmit = (data: any) => {
+    console.log(data);
   };
-
-  const handleInput = (e: any) => {
-    const { name, value } = e.target;
-    setInput((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
   return (
-    <form onSubmit={handleSubmitEvent}>
-      <div className="form_control">
-        <label htmlFor="user-email">Email:</label>
-        <input
-          type="email"
-          id="user-email"
-          name="email"
-          placeholder="example@proton.me"
-          aria-describedby="user-email"
-          aria-invalid="false"
-          onChange={handleInput}
-        />
-        <div id="user-email" className="sr-only">
-          Please enter a valid username. It must contain at least 6 characters.
-        </div>
+    <>
+      <div className="login-wrapper">
+        <form name="base-form" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            {...register("email", { required: true })}
+            type="text"
+            placeholder="example@gmail.com"
+          />
+          {errors.email && <span>email is required</span>}
+          <input
+            {...register("passwd", { required: true })}
+            type="password"
+            placeholder="password"
+          />
+          {errors.passwd && <span>enter is required</span>}
+          <button type="submit"> submit </button>
+        </form>
       </div>
-      <div className="form_control">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          aria-describedby="user-password"
-          aria-invalid="false"
-          onChange={handleInput}
-        />
-        <div id="user-password" className="sr-only">
-          your password should be more than 6 character
-        </div>
-      </div>
-      <button className="btn-submit">Submit</button>
-    </form>
+    </>
   );
 };
 
