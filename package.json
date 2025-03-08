@@ -11,6 +11,7 @@
     "preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
+    "@types/pg": "^8.11.11",
     "compression": "^1.8.0",
     "express": "^5.0.1",
     "pg": "^8.13.3",
