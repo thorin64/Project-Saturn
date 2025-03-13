@@ -4,7 +4,7 @@ export default function Login() {
   function handleSubmit(formData: any) {
     const emailData = formData.get("email");
     const passwdData = formData.get("passwd");
-    console.log(`You searched for ${emailData} and ${passwdData}`);
+    // console.log(`You searched for ${emailData} and ${passwdData}`);
   }
   return (
     <>

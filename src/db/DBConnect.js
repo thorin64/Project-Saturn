@@ -1,4 +1,5 @@
 import pg from "pg";
+import { emailData, passwdData } from "../components/Login";
 
 const { Client } = pg;
 
@@ -34,10 +35,19 @@ export async function dbConnect() {
     console.log("oops");
   }
 }
+dbConnect();
 
 export async function dbDisconnect() {
   await client.end();
   console.log("client has disconnected");
 }
 
-dbConnect();
+export async function dbInsertQuery(email, passwd) {
+  email = emailData;
+  passwd = passwdData;
+
+  const query = await client.query(
+    `INSERT INTO users (email, password) VALUES ('$(email)', crypt('$(passwd)', gen_salt('bf')));`,
+  );
+  console.log(query);
+}
