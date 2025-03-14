@@ -43,11 +43,12 @@ export async function dbDisconnect() {
 }
 
 export async function dbInsertQuery(email, passwd) {
-  email = emailData;
-  passwd = passwdData;
+  // email = emailData;
+  // passwd = passwdData;
 
   const query = await client.query(
-    `INSERT INTO users (email, password) VALUES ('$(email)', crypt('$(passwd)', gen_salt('bf')));`,
+    "INSERT INTO users (email, password) VALUES($1, $2);" 
+    ($(email), crypt($(passwd), gen_salt('bf'));",
   );
   console.log(query);
 }

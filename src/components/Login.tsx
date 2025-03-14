@@ -1,17 +1,12 @@
 import "../css/App.css";
-
+import { dbInsertQuery } from "../db/DBConnect.js";
 export default function Login() {
-  function handleSubmit(formData: any) {
-    const emailData = formData.get("email");
-    const passwdData = formData.get("passwd");
-    // console.log(`You searched for ${emailData} and ${passwdData}`);
-  }
   return (
     <>
       {" "}
       <div className="login-wrapper">
         <h1>Please Log In</h1>
-        <form id="loginForm" action={handleSubmit}>
+        <form id="loginForm" action={dbInsertQuery}>
           <label>
             <span id="usernameInfo" className="loginInfo">
               <input name="email" type="text" placeholder="e-mail" />
