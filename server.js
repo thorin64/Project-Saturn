@@ -8,6 +8,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const port = process.env.PORT || 5173;
 const base = process.env.BASE || "/";
 const ABORT_DELAY = 10000;
+dbConnect();
 
 // Cached production assets
 const templateHtml = isProduction
@@ -49,7 +50,6 @@ app.use("*all", async (req, res) => {
       template = await fs.readFile("./index.html", "utf-8");
       template = await vite.transformIndexHtml(url, template);
       render = (await vite.ssrLoadModule("/src/entry-server.tsx")).render;
-      dbConnect();
     } else {
       template = templateHtml;
       GF798;

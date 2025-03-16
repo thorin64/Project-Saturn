@@ -1,5 +1,5 @@
 import { format } from "@scaleleap/pg-format";
-import { client } from "./DBConnect";
+import { client } from "./DBConnect.ts";
 
 export default async function dbInsertQuery(email: string, passwd: string) {
   const dynamic_query = format(

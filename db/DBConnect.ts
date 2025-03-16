@@ -4,8 +4,8 @@ const { Client } = pg;
 
 export const client = new Client({
   host: process.env.PGHOST,
-  user: process.env.PGUSER,
-  database: process.env.PGDATABASE,
+  user: "psaturn",
+  database: "project-saturn",
   // port: process.env.PGPORT,
 });
 
@@ -15,8 +15,8 @@ export async function dbConnect() {
   try {
     await client.connect();
 
-    // const result = await client.query("SELECT version();");
-    // console.log(result);
+    const result = await client.query("SELECT version();");
+    console.log(result.rows[0]);
 
     console.log("connection sucessful");
     client_connected = 1;
