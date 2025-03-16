@@ -11,14 +11,18 @@
     "preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
+    "@scaleleap/pg-format": "^1.0.0",
     "@types/pg": "^8.11.11",
+    "@types/pg-format": "^1.0.5",
     "compression": "^1.8.0",
+    "dotenv": "^16.4.7",
     "express": "^5.0.1",
     "pg": "^8.13.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
-    "sirv": "^3.0.1"
+    "sirv": "^3.0.1",
+    "tsc": "^2.0.4"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
@@ -26,6 +30,6 @@
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "cross-env": "^7.0.3",
-    "vite": "^6.1.1"
+    "vite": "^6.2.2"
   }
 }

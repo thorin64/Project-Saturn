@@ -1,12 +1,12 @@
 import pg from "pg";
-import { emailData, passwdData } from "../components/Login";
 
 const { Client } = pg;
 
-const client = new Client({
-  host: "localhost",
-  user: "psaturn",
-  database: "project-saturn",
+export const client = new Client({
+  host: process.env.PGHOST,
+  user: process.env.PGUSER,
+  database: process.env.PGDATABASE,
+  // port: process.env.PGPORT,
 });
 
 let client_connected = 0;
@@ -35,20 +35,8 @@ export async function dbConnect() {
     console.log("oops");
   }
 }
-dbConnect();
 
 export async function dbDisconnect() {
   await client.end();
   console.log("client has disconnected");
-}
-
-export async function dbInsertQuery(email, passwd) {
-  // email = emailData;
-  // passwd = passwdData;
-
-  const query = await client.query(
-    "INSERT INTO users (email, password) VALUES($1, $2);" 
-    ($(email), crypt($(passwd), gen_salt('bf'));",
-  );
-  console.log(query);
 }
