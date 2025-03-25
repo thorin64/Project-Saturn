@@ -1,6 +1,6 @@
-import pg from "pg";
+import postgres from "postgres";
 
-const { Client } = pg;
+const { Client } = postgres;
 
 export const client = new Client({
   host: process.env.PGHOST,
