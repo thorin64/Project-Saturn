@@ -1,13 +1,9 @@
 import "../css/App.css";
-import dbInsertQuery from "../../db/DBQuery";
-
 export default function Login() {
   function handleSubmit(formData: any) {
     const emailData = formData.get("email");
     const passwdData = formData.get("passwd");
-
-    dbInsertQuery(emailData, passwdData);
-    console.log(`You searched for ${emailData} and ${passwdData}`);
+    console.log(`You searched for ${emailData}`);
   }
   return (
     <>
