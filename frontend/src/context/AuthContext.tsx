@@ -5,7 +5,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import axios from "axios";
+import api from "../api";
 
 interface AuthContextType {
   user: any;
@@ -27,9 +27,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const loadUser = async () => {
       if (token) {
         try {
-          const response = await axios.get("http://localhost:5000/api/me", {
-            headers: { Authorization: `Bearer ${token}` },
-          });
+          const response = await api.get("/me");
           setUser(response.data);
         } catch (error) {
           localStorage.removeItem("token");
@@ -42,20 +40,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [token]);
 
   const login = async (email: string, password: string) => {
-    const response = await axios.post("http://localhost:5000/api/login", {
-      email,
-      password,
-    });
+    const response = await api.post("/login", { email, password });
     localStorage.setItem("token", response.data.token);
     setToken(response.data.token);
   };
 
   const register = async (name: string, email: string, password: string) => {
-    const response = await axios.post("http://localhost:5000/api/register", {
-      name,
-      email,
-      password,
-    });
+    const response = await api.post("/register", { name, email, password });
     localStorage.setItem("token", response.data.token);
     setToken(response.data.token);
   };
